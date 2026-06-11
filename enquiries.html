@@ -1,0 +1,88 @@
+<!-- enquiries.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Heaven | Place an Order</title>
+    <link href="css_assets/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="_images/logo.png" alt="Cake Heaven">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="enquiries.html">enquiries</a></li>
+                <li><a href="product.html">product</a></li>
+                <li><a href="contact_us.html">contact_us</a></li>
+            </ul>
+        </nav>
+        <input type="text" placeholder="search...">
+        <button type="submit">search</button>
+    </header>
+
+    <main>
+        <h2>🎂 Place your custom cake order</h2>
+        <form action="/submit-order" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Your contact</legend>
+                <label for="name">Full name *</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Cake details</legend>
+                <label for="cake-type">Cake category</label>
+                <select id="cake-type" name="cake-type">
+                    <option>Birthday Cake</option>
+                    <option>Wedding Cake</option>
+                    <option>Cupcakes (Dozen)</option>
+                    <option>Custom Design</option>
+                </select>
+
+                <label for="flavor">Flavor *</label>
+                <input type="text" id="flavor" name="flavor" placeholder="e.g., Chocolate, Vanilla, Red Velvet" required>
+
+                <label for="size">Size / servings</label>
+                <select id="size" name="size">
+                    <option>Small (8-10 servings)</option>
+                    <option>Medium (15-20 servings)</option>
+                    <option>Large (25+ servings)</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Order logistics</legend>
+                <label for="date">Desired date *</label>
+                <input type="date" id="date" name="date" required>
+
+                <label>Service option</label>
+                <div class="radio-group">
+                    <input type="radio" id="pickup" name="service" value="pickup" checked> <label for="pickup">Pickup</label>
+                    <input type="radio" id="delivery" name="service" value="delivery"> <label for="delivery">Delivery</label>
+                </div>
+
+                <label for="message">Custom inscription (optional)</label>
+                <textarea id="message" name="message" rows="3" placeholder="Happy Birthday Mum..."></textarea>
+
+                <label for="image">Upload inspiration photo</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </fieldset>
+
+            <button type="submit">🍰 Request a quote</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>cake heaven &copy;™ 2026 — baked with love</p>
+    </footer>
+</body>
+</html>
