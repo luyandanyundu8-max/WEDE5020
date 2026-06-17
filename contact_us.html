@@ -1,0 +1,102 @@
+<!-- contact_us.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Heaven | Contact & Inquiries</title>
+    <link href="css_assets/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="_images/logo.png" alt="Cake Heaven">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="enquiries.html">enquiries</a></li>
+                <li><a href="product.html">product</a></li>
+                <li><a href="contact_us.html">contact_us</a></li>
+            </ul>
+        </nav>
+        <input type="text" placeholder="search...">
+        <button type="submit">search</button>
+    </header>
+
+    <main>
+        <h2>Find us</h2>
+        <pre>
+3151 Dune Lark Street
+Pretoria CBD, 0001
+        </pre>
+
+        <div class="contact-grid">
+            <div>
+                <h3>📍 Our location</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d115001.36636993!2d28.15297622564639!3d-25.74436812189275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srosebank%20college%20MAP!5e0!3m2!1sen!2sza!4v1775849867743!5m2!1sen!2sza" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.3261059475476!2d29.2174!3d-25.825797500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eea928e4afd83ed%3A0xd3011d380acb381a!2sCoronation%20Secondary%20School!5e0!3m2!1sen!2sza!4v1776159916949!5m2!1sen!2sza" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div>
+                <h3>📬 Order or inquire</h3>
+                <form action="#" method="post">
+                    <label for="name">Your name *</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="province">Province</label>
+                    <select id="province" name="province">
+                        <option>--Select--</option>
+                        <option>Gauteng</option>
+                        <option>Western Cape</option>
+                        <option>KwaZulu-Natal</option>
+                    </select>
+
+                    <label>How did you hear about us?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="social" name="hear" value="social"> <label for="social">Social Media</label>
+                        <input type="radio" id="referral" name="hear" value="referral"> <label for="referral">Friend/Referral</label>
+                        <input type="radio" id="other" name="hear" value="other"> <label for="other">Other</label>
+                    </div>
+
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <input type="radio" id="female" name="gender" value="female"> <label for="female">Female</label>
+                        <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label>
+                        <input type="radio" id="nonbinary" name="gender" value="nonbinary"> <label for="nonbinary">Non-Binary</label>
+                    </div>
+
+                    <label for="message">Cake details or inquiry *</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">✨ Send sweet request</button>
+                </form>
+            </div>
+        </div>
+
+        <address>
+            <strong>Cake Heaven</strong><br>
+            Email: <a href="mailto:Lulu@cakeheaven.com">Lulu@cakeheaven.com</a><br>
+            <h3>Working Hours</h3>
+            <ul>
+                <li>Mon–Fri: 9am – 6pm</li>
+                <li>Saturday: 10am – 2pm</li>
+                <li>Sunday: closed (baking in silence 🍰)</li>
+            </ul>
+        </address>
+    </main>
+
+    <footer>
+        <p>cake heaven &copy;™ 2026 — baked with love</p>
+    </footer>
+</body>
+</html>
