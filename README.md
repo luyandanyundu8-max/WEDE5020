@@ -66,3 +66,21 @@ This website is our digital shop – it lets you browse, customise, and order ou
 | Packaging | 1,000 |
 | Contingency | 500 |
 | **TOTAL** | **11,000** |
+---
+
+## References
+
+**Academic:**
+- Farrell, J. (2022). *Programming Logic and Design: Comprehensive* (10th ed.). Boston: Cengage Learning.
+
+**Images (from Unsplash):**
+- Pointcheval, U. (2020). Graduation cake with cap, Diploma and flowers [Photograph]. France.
+- Theil, T. (2023). White wedding cake [Photograph]. Unsplash.
+- William, T. (2018). 4 Tired Cake [Photograph].
+- Williamson, D. (2021). White and red cake with black and white icing on top [Photograph]. St. Louis, USA.
+
+**Technical:**
+- WordPress. (2024). Website building and hosting platform. https://wordpress.org
+- Wix. (2024). Small business website design tips. https://www.wix.com
+- ZACR. (2024). Domain Registration in South Africa. https://www.zacr.org.za
+
