@@ -7,7 +7,7 @@ cake heaven
 ## Student Details
 - **Name:** [luyanda nyundu]  
 - **Student ID:** [st10522040]  
-- **Course:** [web development]  
+- **module name:** [web development]  
 - **Date:** June 2026  
 
 ---
