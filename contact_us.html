@@ -4,8 +4,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Heaven | Contact & Inquiries</title>
+    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love." />
+    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday" />
+    <title>Cake Heaven | contact_us</title>
     <link href="css_assets/style.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <!-- Leaflet CSS (loaded directly to ensure it works) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="js_assets/myjavascript.js" defer></script>
+
+    <style>
+        /* Additional styles for redesigned contact page */
+        .contact-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-form-section {
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-form-section form {
+            max-width: 100%;
+        }
+
+        .maps-section {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .map-item {
+            margin-bottom: 1.8rem;
+            border: 3px solid var(--brown-300);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background: #ffffff;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .map-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .map-item .map-label {
+            background: var(--brown-100);
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--brown-700);
+            border-bottom: 2px solid var(--brown-300);
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .map-item .map-label i {
+            color: var(--brown-500);
+        }
+
+        .map-item .map-container {
+            margin: 0;
+            padding: 0.5rem;
+            background: #ffffff;
+            min-height: 280px;
+        }
+
+        .map-item .map-container iframe {
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            border: none;
+            display: block;
+        }
+
+        /* Leaflet map specific - MUST have a height */
+        #leaflet-map {
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        /* Address section styling */
+        .address-section {
+            text-align: center;
+            margin: 0.5rem 0 1.5rem;
+        }
+
+        .address-section pre {
+            background: var(--brown-100);
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            display: inline-block;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--brown-700);
+            border: 1px solid var(--brown-200);
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        .working-hours {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--brown-100);
+            padding: 1.2rem 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--brown-200);
+            text-align: center;
+        }
+
+        .working-hours h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .working-hours ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .working-hours ul li {
+            padding: 0.2rem 0;
+            border-bottom: 1px solid var(--brown-200);
+            font-size: 0.9rem;
+        }
+
+        .working-hours ul li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-divider {
+            border: none;
+            border-top: 2px solid var(--brown-200);
+            max-width: 120px;
+            margin: 0 auto;
+        }
+
+        /* Leaflet map fix - ensure it doesn't break */
+        .leaflet-container {
+            z-index: 1;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .map-item .map-container {
+                min-height: 200px;
+            }
+            .map-item .map-container iframe {
+                height: 200px;
+            }
+            #leaflet-map {
+                height: 200px;
+            }
+            .address-section pre {
+                font-size: 0.85rem;
+                padding: 0.8rem 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,36 +189,33 @@
                 <li><a href="about.html">about</a></li>
                 <li><a href="enquiries.html">enquiries</a></li>
                 <li><a href="product.html">product</a></li>
-                <li><a href="contact_us.html">contact_us</a></li>
+                <li><a href="contact_us.html" class="active">contact_us</a></li>
             </ul>
         </nav>
-        <input type="text" placeholder="search...">
+        <input type="text" class="search-input" placeholder="search...">
         <button type="submit">search</button>
     </header>
 
     <main>
-        <h2>Find us</h2>
-        <pre>
-3151 Dune Lark Street
+        <h2>📬 Get in Touch</h2>
+
+        <!-- Address Section -->
+        <div class="address-section">
+            <pre>
+📍 3151 Dune Lark Street
 Pretoria CBD, 0001
-        </pre>
+            </pre>
+        </div>
 
-        <div class="contact-grid">
-            <div>
-                <h3>📍 Our location</h3>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d115001.36636993!2d28.15297622564639!3d-25.74436812189275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srosebank%20college%20MAP!5e0!3m2!1sen!2sza!4v1775849867743!5m2!1sen!2sza" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.3261059475476!2d29.2174!3d-25.825797500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eea928e4afd83ed%3A0xd3011d380acb381a!2sCoronation%20Secondary%20School!5e0!3m2!1sen!2sza!4v1776159916949!5m2!1sen!2sza" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+        <hr class="contact-divider">
 
-            <div>
-                <h3>📬 Order or inquire</h3>
-                <form action="#" method="post">
+        <div class="contact-layout">
+            <!-- ===== CONTACT FORM (TOP) ===== -->
+            <div class="contact-form-section">
+                <h3 style="text-align: center; border-left: none; padding-left: 0; margin-bottom: 1rem;">✉️ Send us a message</h3>
+                <form action="/send-message" method="post">
                     <label for="name">Your name *</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required minlength="2">
 
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="email" required>
@@ -59,6 +229,12 @@ Pretoria CBD, 0001
                         <option>Gauteng</option>
                         <option>Western Cape</option>
                         <option>KwaZulu-Natal</option>
+                        <option>Eastern Cape</option>
+                        <option>Free State</option>
+                        <option>Limpopo</option>
+                        <option>Mpumalanga</option>
+                        <option>North West</option>
+                        <option>Northern Cape</option>
                     </select>
 
                     <label>How did you hear about us?</label>
@@ -73,30 +249,134 @@ Pretoria CBD, 0001
                         <input type="radio" id="female" name="gender" value="female"> <label for="female">Female</label>
                         <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label>
                         <input type="radio" id="nonbinary" name="gender" value="nonbinary"> <label for="nonbinary">Non-Binary</label>
+                        <input type="radio" id="prefer-not" name="gender" value="prefer-not"> <label for="prefer-not">Prefer not to say</label>
                     </div>
 
                     <label for="message">Cake details or inquiry *</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <textarea id="message" name="message" rows="4" required maxlength="500" placeholder="Tell us about your dream cake..."></textarea>
 
                     <button type="submit">✨ Send sweet request</button>
                 </form>
             </div>
-        </div>
 
-        <address>
-            <strong>Cake Heaven</strong><br>
-            Email: <a href="mailto:Lulu@cakeheaven.com">Lulu@cakeheaven.com</a><br>
-            <h3>Working Hours</h3>
-            <ul>
-                <li>Mon–Fri: 9am – 6pm</li>
-                <li>Saturday: 10am – 2pm</li>
-                <li>Sunday: closed (baking in silence 🍰)</li>
-            </ul>
-        </address>
+            <hr class="contact-divider">
+
+            <!-- ===== MAPS SECTION (BELOW FORM) ===== -->
+            <div class="maps-section">
+                <h3 style="text-align: center; border-left: none; padding-left: 0; margin-bottom: 1.5rem;">📍 Find us on the map</h3>
+
+                <!-- Map 1 - Google Map -->
+                <div class="map-item">
+                    <div class="map-label">
+                        <i class="fas fa-map-pin"></i> Google Map – Surrounding Area
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d115001.36636993!2d28.15297622564639!3d-25.74436812189275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srosebank%20college%20MAP!5e0!3m2!1sen!2sza!4v1775849867743!5m2!1sen!2sza" width="100%" height="280" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Map 2 - Google Map -->
+                <div class="map-item">
+                    <div class="map-label">
+                        <i class="fas fa-map-marker-alt"></i> Google Map – Nearby Landmark
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.3261059475476!2d29.2174!3d-25.825797500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eea928e4afd83ed%3A0xd3011d380acb381a!2sCoronation%20Secondary%20School!5e0!3m2!1sen!2sza!4v1776159916949!5m2!1sen!2sza" width="100%" height="280" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Map 3 – Leaflet Interactive Map (fixed) -->
+                <div class="map-item">
+                    <div class="map-label">
+                        <i class="fas fa-globe-africa"></i> Interactive Map – Cake Heaven HQ
+                    </div>
+                    <div class="map-container">
+                        <div id="leaflet-map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="contact-divider">
+
+            <!-- ===== WORKING HOURS ===== -->
+            <div class="working-hours">
+                <h3>🕐 Working Hours</h3>
+                <ul>
+                    <li><strong>Mon–Fri:</strong> 9am – 6pm</li>
+                    <li><strong>Saturday:</strong> 10am – 2pm</li>
+                    <li><strong>Sunday:</strong> closed (baking in silence 🍰)</li>
+                </ul>
+                <p style="background: none; padding: 0.5rem 0; border: none; box-shadow: none; margin: 0.5rem 0 0; font-size: 0.85rem;">
+                    <i class="fas fa-envelope" style="color: var(--brown-500);"></i>
+                    <a href="mailto:lulu@cakeheaven.com" style="color: var(--brown-600); text-decoration: underline;">lulu@cakeheaven.com</a>
+                </p>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>cake heaven &copy;™ 2026 — baked with love</p>
+        <div class="footer-extra">
+            <p>cake heaven &copy; <span class="footer-year">2026</span> — baked with love</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lulu_cakeheaven" target="_blank" aria-label="lulu@cakeheaven"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/@lulu_cakeheaven" target="_blank" aria-label="lulu@cakeheaven"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com/lulu_cakeheaven" target="_blank" aria-label="lulu@cakeheaven"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:lulu@cakeheaven.com" aria-label="lulu@cakeheaven"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--brown-600); background: none; padding: 0; border: none; box-shadow: none;">Follow us @lulu_cakeheaven</p>
+        </div>
     </footer>
+
+    <!-- Leaflet map initialization script (inline to ensure it runs) -->
+    <script>
+        // Wait for everything to load, then initialize Leaflet map
+        document.addEventListener('DOMContentLoaded', function() {
+            initLeafletMap();
+        });
+
+        // Also run after a short delay in case DOMContentLoaded fires too early
+        setTimeout(function() {
+            if (document.getElementById('leaflet-map') && !document.getElementById('leaflet-map')._leaflet_id) {
+                initLeafletMap();
+            }
+        }, 500);
+
+        function initLeafletMap() {
+            const mapContainer = document.getElementById('leaflet-map');
+            if (!mapContainer) return;
+            
+            // Check if already initialized
+            if (mapContainer._leaflet_id) return;
+
+            try {
+                // Define the map
+                const map = L.map('leaflet-map', {
+                    center: [-25.7444, 28.1529],
+                    zoom: 14
+                });
+
+                // Add tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                // Add marker
+                L.marker([-25.7444, 28.1529])
+                    .addTo(map)
+                    .bindPopup('<b>Cake Heaven</b><br>3151 Dune Lark Street<br>Pretoria CBD, 0001')
+                    .openPopup();
+
+                // Force a resize after a moment to ensure it renders correctly
+                setTimeout(function() {
+                    map.invalidateSize();
+                }, 300);
+
+            } catch (error) {
+                console.warn('Leaflet map error:', error);
+                // Show a fallback message if Leaflet fails
+                mapContainer.innerHTML = '<p style="text-align:center;padding:40px;color:#6b4f37;">🗺️ Map could not load.<br>Please try refreshing the page.</p>';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -4,8 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love." />
+    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday" />
     <title>Cake Heaven | Our Story</title>
     <link href="css_assets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="js_assets/myjavascript.js" defer></script>
 </head>
 <body>
     <header>
@@ -13,36 +21,54 @@
         <nav class="navbar">
             <ul>
                 <li><a href="index.html">home</a></li>
-                <li><a href="about.html">about</a></li>
+                <li><a href="about.html" class="active">about</a></li>
                 <li><a href="enquiries.html">enquiries</a></li>
                 <li><a href="product.html">product</a></li>
                 <li><a href="contact_us.html">contact_us</a></li>
             </ul>
         </nav>
-        <input type="text" placeholder="search...">
+        <input type="text" class="search-input" placeholder="search...">
         <button type="submit">search</button>
     </header>
 
     <main>
         <h1>Our background story – where the magic began</h1>
-        <img src="_images/cake_shop.jpg" alt="Cake shop interior">
+
+        <!-- Shop picture – now using a CSS class instead of inline styles -->
+        <img 
+            src="_images/cake_shop.jpg" 
+            alt="Cake shop interior" 
+            class="about-shop-img"
+        >
 
         <p>Growing up, I was grandma’s taste tester every Sunday after church. I sat on a chair in her flour‑dusted kitchen learning that the best recipes are not found in a book – they are felt. She taught me that a perfect crust requires cold butter and a warm heart. After granny passed away, baking became my way of staying connected to her. When friends and family started offering to pay for grandma’s style, I realised that her legacy was too good not to share. That is how Cake Heaven started on 20 May 2022.</p>
 
-        <!-- Autoplay looping video (muted required for autoplay) -->
+        <!-- Autoplay looping video -->
         <video width="100%" controls autoplay muted loop playsinline>
             <source src="video/aboutus_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <h2>MISSION</h2>
-        <p>Our mission is to share the joy of homemade cakes with families and friends, keeping traditions alive while making ordering simple and convenient. We believe every cake tells a story – one of celebrations, love, and creativity.</p>
+        <!-- ===== MISSION, VISION, TARGET MARKET – DECORATIVE CIRCLES ===== -->
+        <div class="circle-wrapper">
+            <!-- MISSION -->
+            <div class="circle-card">
+                <h3>MISSION</h3>
+                <p>Our mission is to share the joy of homemade cakes with families and friends, keeping traditions alive while making ordering simple and convenient. We believe every cake tells a story – one of celebrations, love, and creativity.</p>
+            </div>
 
-        <h2>VISION</h2>
-        <p>To become an established provider of homemade cakes that you can trust to deliver excellent products with caring service, blending old baking traditions with new technology.</p>
+            <!-- VISION -->
+            <div class="circle-card">
+                <h3>VISION</h3>
+                <p>To become an established provider of homemade cakes that you can trust to deliver excellent products with caring service, blending old baking traditions with new technology.</p>
+            </div>
 
-        <h2>TARGET MARKET</h2>
-        <p>For those who long for homemade taste, busy moms, conscious local shoppers, and anyone celebrating life's moments – birthdays, weddings, and more.</p>
+            <!-- TARGET MARKET -->
+            <div class="circle-card">
+                <h3>TARGET MARKET</h3>
+                <p>For those who long for homemade taste, busy moms, conscious local shoppers, and anyone celebrating life's moments – birthdays, weddings, and more.</p>
+            </div>
+        </div>
 
         <h3>Meet our heart & soul</h3>
         <div class="team-grid">
@@ -60,7 +86,16 @@
     </main>
 
     <footer>
-        <p>cake heaven &copy;™ 2026 — baked with love</p>
+      <div class="footer-extra">
+            <p>cake heaven &copy; <span class="footer-year">2026</span> — baked with love</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lulu@cakeheaven" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/lulu@cakeheaven" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com/lulu@cakeheaven" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:lulu@cakeheaven.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--brown-600); background: none; padding: 0; border: none; box-shadow: none;">Follow us at lulu@cakeheaven</p>
+        </div>   
     </footer>
 </body>
 </html>

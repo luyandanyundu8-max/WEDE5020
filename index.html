@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Heaven | Artisanal Cakes</title>
+    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love." />
+    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday" />
+    <title>Cake Heaven |home_page</title>
+
     <link href="css_assets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- jQuery & Lightbox -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="js_assets/myjavascript.js" defer></script>
 </head>
+
 <body>
     <header>
         <img src="_images/logo.png" alt="Cake Heaven">
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">home</a></li>
+                <li><a href="index.html" class="active">home</a></li>
                 <li><a href="about.html">about</a></li>
                 <li><a href="enquiries.html">enquiries</a></li>
                 <li><a href="product.html">product</a></li>
                 <li><a href="contact_us.html">contact_us</a></li>
             </ul>
         </nav>
-        <input type="text" placeholder="search...">
+        <input type="text" class="search-input" placeholder="search...">
         <button type="submit">search</button>
     </header>
 
     <main>
-        <!-- Hero section: title on top, full-width image, button below -->
+        <!-- ===== ORIGINAL HERO SHOT – RESTORED ===== -->
         <div class="hero-full">
             <h1 class="hero-title">Cake Heaven</h1>
             <div class="hero-image-full">
-                <img src="_images/hero_cake.jpg" alt="Signature layered cake" onerror="this.src='_images/cakes_on_shelf.jpg'">
+                <img src="_images/swirl_choc_cake.jpg" alt="Signature layered cake" onerror="this.src='_images/placeholder.jpg'">
             </div>
             <a href="enquiries.html" class="btn-cta">🍰 Order Your Cake Now →</a>
         </div>
@@ -64,14 +74,14 @@
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
             <div class="cake-card">
-                <img src="_images/cupcake.jpg" alt="Vanilla Bean Cupcakes">
+                <img src="_images/vanilla_cupcake.jpg" alt="vanilla">
                 <h3>Vanilla Cupcakes</h3>
                 <p class="price">R300 / 6pcs</p>
                 <p>Light vanilla bean frosting on fluffy sponge.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
             <div class="cake-card">
-                <img src="_images/small_wedding_cake.jpg" alt="Wedding Cake">
+                <img src="_images/wedding_cake.jpg" alt="wedding_cake">
                 <h3>Elegant Wedding</h3>
                 <p class="price">From R850</p>
                 <p>Custom tiers, fresh flowers, and your choice of fillings.</p>
@@ -80,14 +90,31 @@
         </div>
 
         <h2>🌟 Why Cake Heaven?</h2>
-        <ol style="background: #fff8f2; padding: 1.5rem 2rem; border-radius: 28px; max-width: 700px; margin: 1rem auto;">
+        <ol style="background: #fff8f2; padding: 1.5rem 2rem; border-radius: 15px; max-width: 400px; margin: 1rem auto;">
             <li><strong>Custom Cake Design</strong> – Personal consultations for weddings & parties.</li>
             <li><strong>Delivery Services</strong> – Safe delivery within 20km radius (R100 fee).</li>
             <li><strong>Baking Workshops</strong> – Weekend classes for beginners & intermediates.</li>
         </ol>
 
-        <div style="text-align: center; margin: 2rem 0;">
-            <img src="_images/dripping_oreocake.jpg" alt="Dripping Oreo cake" style="max-width: 70%; border-radius: 28px;">
+        <!-- ===== NEW SLIDESHOW ADDED HERE (separate from hero) ===== -->
+        <h2>🎞️ Featured Creations Slideshow</h2>
+        <div id="hero-slideshow"></div>
+
+        <!-- Gallery images with Lightbox (manual data-lightbox) -->
+        <h2>📸 Our Creations</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1rem 0;">
+            <a href="_images/dripping_oreocake.jpg" data-lightbox="gallery" data-title="Oreo Drip Cake">
+                <img src="_images/dripping_oreocake.jpg" alt="Dripping Oreo cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            </a>
+            <a href="_images/tiramisu.jpg" data-lightbox="gallery" data-title="Tiramisu Cake">
+                <img src="_images/tiramisu.jpg" alt="Tiramisu" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            </a>
+            <a href="_images/graduation_picture.jpg" data-lightbox="gallery" data-title="Graduation Cake">
+                <img src="_images/graduation_picture.jpg" alt="Graduation cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            </a>
+            <a href="_images/barbie_cake.jpg" data-lightbox="gallery" data-title="Barbie Dream Cake">
+                <img src="_images/barbie_cake.jpg" alt="Barbie cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            </a>
         </div>
 
         <h2>🎂 Ready to order?</h2>
@@ -97,11 +124,24 @@
             <a href="mailto:lulu@cakeheaven.com" class="btn-cta" style="background-color: #6b3e2c; margin-left: 1rem;">✉️ lulu@cakeheaven.com</a>
         </div>
 
-        <img src="_images/graduation_picture.jpg" alt="New cake creation" style="max-width: 70%; display: block; margin: 0 auto;">
+        <!-- Dynamic content: Load more -->
+        <div class="dynamic-content">
+            <button class="load-more-btn">📦 Load More Cakes</button>
+            <div class="product-grid" style="margin-top: 1rem;"></div>
+        </div>
     </main>
 
     <footer>
-        <p>cake heaven &copy;™ 2026 — baked with love</p>
+        <div class="footer-extra">
+            <p>cake heaven &copy; <span class="footer-year">2026</span> — baked with love</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lulu@cakeheaven" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/lulu@cakeheaven" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com/lulu@cakeheaven" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:lulu@cakeheaven.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--brown-600); background: none; padding: 0; border: none; box-shadow: none;">Follow us at lulu@cakeheaven</p>
+        </div>
     </footer>
 </body>
 </html>

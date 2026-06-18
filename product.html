@@ -1,11 +1,20 @@
-<!-- product.html (with catalogue grid) -->
+<!-- product.html (with catalogue grid and tabs) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Heaven | Our sweets</title>
+    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love." />
+    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday" />
+    <title>Cake Heaven |product</title>
     <link href="css_assets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="js_assets/myjavascript.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,59 +24,75 @@
                 <li><a href="index.html">home</a></li>
                 <li><a href="about.html">about</a></li>
                 <li><a href="enquiries.html">enquiries</a></li>
-                <li><a href="product.html">product</a></li>
+                <li><a href="product.html" class="active">product</a></li>
                 <li><a href="contact_us.html">contact_us</a></li>
             </ul>
         </nav>
-        <input type="text" placeholder="search...">
+        <input type="text" class="search-input" placeholder="search...">
         <button type="submit">search</button>
     </header>
 
     <main>
         <h1>Our menu of happiness 🍰</h1>
-        
-        <!-- Product Catalogue Grid -->
-        <div class="catalogue-grid">
-            <div class="cake-card">
-                <img src="_images/cakes_on_shelf.jpg" alt="Chocolate Indulgence">
+
+      
+
+        <!-- Product Catalogue Grid (with data-category for tabs) -->
+        <div class="catalogue-grid" id="product-grid-main">
+            <div class="cake-card" data-category="chocolate">
+                <img src="_images/swirl_choc_cake.jpg" alt="Chocolate Indulgence">
                 <h3>Chocolate Indulgence</h3>
                 <p class="price">R600</p>
                 <p>Three layers of rich chocolate, silky buttercream, and chocolate shavings.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
-            <div class="cake-card">
-                <img src="_images/cupcake.jpg" alt="Vanilla Dream Cupcakes">
+            <div class="cake-card" data-category="vanilla">
+                <img src="_images/vanilla_cupcake.jpg" alt="Vanilla Dream Cupcakes">
                 <h3>Vanilla Dream Cupcakes</h3>
                 <p class="price">R300 / 6 pcs</p>
                 <p>Fluffy vanilla bean frosting on light vanilla sponge.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
-            <div class="cake-card">
-                <img src="_images/small_wedding_cake.jpg" alt="Elegant Wedding Cake">
+            <div class="cake-card" data-category="wedding">
+                <img src="_images/wedding_cake.jpg" alt="Elegant Wedding Cake">
                 <h3>Wedding Elegance</h3>
                 <p class="price">from R850</p>
                 <p>Custom tiers, fresh flowers, and your choice of flavors.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
-            <div class="cake-card">
+            <div class="cake-card" data-category="vanilla">
                 <img src="_images/barbie_cake.jpg" alt="Barbie Dream Cake">
                 <h3>Barbie Celebration</h3>
                 <p class="price">R520</p>
                 <p>Perfect for little princesses — pink ombre and edible glitter.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
-            <div class="cake-card">
+            <div class="cake-card" data-category="chocolate">
                 <img src="_images/dripping_oreocake.jpg" alt="Oreo Drip Cake">
                 <h3>Oreo Drip Cake</h3>
                 <p class="price">R680</p>
                 <p>Cookies & cream cake with chocolate drip and whole Oreos.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
-            <div class="cake-card">
+            <div class="cake-card" data-category="wedding">
                 <img src="_images/three_wedding_cakes.jpg" alt="three_wedding_cakes">
                 <h3>Red Velvet Rose</h3>
                 <p class="price">R590</p>
                 <p>Cream cheese frosting, velvety crumb, and rose petals.</p>
+                <button onclick="location.href='enquiries.html'">Order now</button>
+            </div>
+            <div class="cake-card" data-category="chocolate">
+                <img src="_images/choc_dripping.jpg" alt="choc_dripping">
+                <h3>choc_dripping</h3>
+                <p class="price">R600</p>
+                <p>Cream cheese frosting, </p>
+                <button onclick="location.href='enquiries.html'">Order now</button>
+            </div>
+            <div class="cake-card" data-category="vanilla">
+                <img src="_images/tiramisu.jpg" alt="tiramisu">
+                <h3>tiramisu cake </h3>
+                <p class="price">R400</p>
+                <p>rich and creamy  </p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
         </div>
@@ -84,7 +109,16 @@
     </main>
 
     <footer>
-        <p>cake heaven &copy;™ 2026 — baked with love</p>
+    <div class="footer-extra">
+            <p>cake heaven &copy; <span class="footer-year">2026</span> — baked with love</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lulu@cakeheaven" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/lulu@cakeheaven" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com/lulu@cakeheaven" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:lulu@cakeheaven.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--brown-600); background: none; padding: 0; border: none; box-shadow: none;">Follow us at lulu@cakeheaven</p>
+        </div>
     </footer>
 </body>
 </html>
