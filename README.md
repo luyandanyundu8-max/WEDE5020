@@ -74,6 +74,8 @@ This website is our digital shop – it lets you browse, customise, and order ou
 - Farrell, J. (2022). *Programming Logic and Design: Comprehensive* (10th ed.). Boston: Cengage Learning.
 
 **Images (from Unsplash):**
+-Williamson, D. (2019) Ocean waves at sunset. Unsplash. Published on 22 July. Available at: https://images.unsplash.com/photo-1563778084459-859099e48677?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 18 June 2026).
+
 - Pointcheval, U. (2020). Graduation cake with cap, Diploma and flowers [Photograph]. France.
 - Theil, T. (2023). White wedding cake [Photograph]. Unsplash.
 - William, T. (2018). 4 Tired Cake [Photograph].
@@ -83,4 +85,19 @@ This website is our digital shop – it lets you browse, customise, and order ou
 - WordPress. (2024). Website building and hosting platform. https://wordpress.org
 - Wix. (2024). Small business website design tips. https://www.wix.com
 - ZACR. (2024). Domain Registration in South Africa. https://www.zacr.org.za
+## updated References
+
+Bekh, O. (2021) [Photograph of a scenic landscape]. Unsplash. Published on 25 September 2021. Available at: https://images.unsplash.com/photo-1632572380371-8f30a8a8c020?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 17 June 2026).
+
+Espinosa, A. (2019) [Photograph of a cityscape at night]. Unsplash. Published on 15 October 2019. Available at: https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 17 June 2026).
+
+Djouada, K. (2020) [Photograph of a cat]. Unsplash. Available at: https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 17 June 2026).
+ 
+Peralta Bocio, G. (2023) Underwater scene. Unsplash. Available at: https://images.unsplash.com/photo-1678473289821-1818e3f82e9a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 18 June 2026).
+  
+Savchuk, S. (2023) [Photograph of a winter landscape]. Unsplash. Published on 16 December 2023. Available at: https://images.unsplash.com/photo-1702744382319-20efefc9dc19?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 17 June 2026).
+
+Tandon, K. (2023) [Photograph of a mountain landscape]. Unsplash. Published on 11 January 2023. Available at: https://images.unsplash.com/photo-1673417284575-cb29c8631125?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 17 June 2026).
+
+Williamson, D. (2019) Ocean waves at sunset. Unsplash. Published on 22 July. Available at: https://images.unsplash.com/photo-1563778084459-859099e48677?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D (Accessed: 18 June 2026).
 
