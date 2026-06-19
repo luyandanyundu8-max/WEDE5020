@@ -2,10 +2,9 @@
    myjavascript.js — Complete JavaScript for Cake Heaven
    ============================================================ */
 
-/* ----------------------------------------------
-   Wait for DOM ready (jQuery)
-   ---------------------------------------------- */
 $(document).ready(function () {
+
+    console.log('🍰 Cake Heaven JS loaded.');
 
     // ============================================================
     // 1.  SLIDESHOW / CAROUSEL  (Index page)
@@ -14,10 +13,11 @@ $(document).ready(function () {
         { src: '_images/swirl_choc_cake.jpg', alt: 'Signature layered cake' },
         { src: '_images/dripping_oreocake.jpg', alt: 'Oreo Drip Cake' },
         { src: '_images/wedding_cake.jpg', alt: 'Elegant Wedding Cake' },
-        { src: '_images/tiramisu.jpg', alt: 'Tiramisu Cake' }
+        { src: '_images/tiramisu-cake.jpg', alt: 'Tiramisu Cake' }
     ];
 
     if ($('#hero-slideshow').length) {
+        console.log('Index slideshow found.');
         let currentSlide = 0;
         const slideshowContainer = $('#hero-slideshow');
         const slideshowInner = $('<div class="slideshow-inner"></div>');
@@ -143,21 +143,42 @@ $(document).ready(function () {
     // 4.  TABS  (Product page)
     // ============================================================
     if ($('.tabs-container').length) {
-        const $tabs = $('.tab-btn');
-        const $panels = $('.tab-panel');
+        console.log('Tabs found on product page.');
 
-        $tabs.on('click', function () {
-            const target = $(this).data('tab');
+        // Populate category panels from the "All" grid
+        function populateCategoryPanels() {
+            var $allItems = $('#tab-all .cake-card');
+            $('#tab-chocolate .catalogue-grid').empty();
+            $('#tab-vanilla .catalogue-grid').empty();
+            $('#tab-wedding .catalogue-grid').empty();
 
-            $tabs.removeClass('active');
+            $allItems.each(function() {
+                var $card = $(this).clone();
+                var category = $card.data('category');
+                if (category === 'chocolate') {
+                    $('#tab-chocolate .catalogue-grid').append($card);
+                } else if (category === 'vanilla') {
+                    $('#tab-vanilla .catalogue-grid').append($card);
+                } else if (category === 'wedding') {
+                    $('#tab-wedding .catalogue-grid').append($card);
+                }
+            });
+        }
+
+        populateCategoryPanels();
+
+        // Tab switching
+        $('.tab-btn').on('click', function() {
+            var targetId = $(this).data('tab');
+            $('.tab-btn').removeClass('active');
             $(this).addClass('active');
-
-            $panels.removeClass('active');
-            $(`#${target}`).addClass('active');
+            $('.tab-panel').removeClass('active');
+            $('#' + targetId).addClass('active');
+            // Re-run search inside the newly active panel if there is a query
+            if ($('.search-input').val().trim() !== '') {
+                performSearch();
+            }
         });
-
-        $tabs.first().addClass('active');
-        $panels.first().addClass('active');
     }
 
 
@@ -185,7 +206,7 @@ $(document).ready(function () {
         });
     }
 
-    // Helper to show modal – now uses .html() so we can include clickable links
+    // Helper to show modal
     window.showModal = function (title, message, isSuccess = true) {
         $('#modal-title').text(title || (isSuccess ? '🎉 Success!' : '⚠️ Oops!'));
         $('#modal-message').html(message || '');
@@ -194,53 +215,53 @@ $(document).ready(function () {
 
 
     // ============================================================
-    // 6.  SEARCH FUNCTIONALITY
+    // 6.  SEARCH FUNCTIONALITY (with button click support)
     // ============================================================
     if ($('.search-input').length) {
-        $('.search-input').on('keyup', function () {
-            const query = $(this).val().toLowerCase().trim();
-            const $cards = $('.cake-card');
+        console.log('Search input found.');
+
+        // Add "no results" message if it doesn't exist
+        if ($('#no-results-msg').length === 0 && $('.cake-card').length) {
+            var $grid = $('.product-grid, .catalogue-grid').first();
+            if ($grid.length) {
+                $grid.after('<p id="no-results-msg" style="display:none; text-align:center; padding:2rem; color:var(--brown-600);">😕 No cakes match your search.</p>');
+            }
+        }
+
+        function performSearch() {
+            var query = $('.search-input').val().toLowerCase().trim();
+            // If tabs are present, search only within the active tab panel
+            var $activePanel = $('.tab-panel.active');
+            var $cards = $activePanel.length ? $activePanel.find('.cake-card') : $('.cake-card');
+            var $msg = $('#no-results-msg');
 
             if (query === '') {
+                $msg.hide();
                 $cards.show();
                 return;
             }
 
-            $cards.each(function () {
-                const $card = $(this);
-                const text = $card.text().toLowerCase();
-                const match = text.indexOf(query) > -1;
-                $card.toggle(match);
-            });
-        });
-
-        $('.sort-select').on('change', function () {
-            const sortBy = $(this).val();
-            const $container = $('.catalogue-grid, .product-grid');
-            const $cards = $container.find('.cake-card');
-
-            const sorted = $cards.get().sort(function (a, b) {
-                const $a = $(a);
-                const $b = $(b);
-                let valA, valB;
-
-                if (sortBy === 'price-low') {
-                    valA = parseFloat($a.find('.price').text().replace(/[^0-9.]/g, '')) || 0;
-                    valB = parseFloat($b.find('.price').text().replace(/[^0-9.]/g, '')) || 0;
-                    return valA - valB;
-                } else if (sortBy === 'price-high') {
-                    valA = parseFloat($a.find('.price').text().replace(/[^0-9.]/g, '')) || 0;
-                    valB = parseFloat($b.find('.price').text().replace(/[^0-9.]/g, '')) || 0;
-                    return valB - valA;
-                } else if (sortBy === 'name') {
-                    valA = $a.find('h3').text().toLowerCase();
-                    valB = $b.find('h3').text().toLowerCase();
-                    return valA.localeCompare(valB);
-                }
-                return 0;
+            var visibleCount = 0;
+            $cards.each(function() {
+                var match = $(this).text().toLowerCase().indexOf(query) > -1;
+                $(this).toggle(match);
+                if (match) visibleCount++;
             });
 
-            $container.empty().append(sorted);
+            if (visibleCount === 0) {
+                $msg.show();
+            } else {
+                $msg.hide();
+            }
+        }
+
+        // Bind to keyup (typing)
+        $('.search-input').on('keyup', performSearch);
+
+        // Bind to the search button (click)
+        $('header .search-btn, header button[type="submit"]').on('click', function(e) {
+            e.preventDefault();
+            performSearch();
         });
     }
 
@@ -256,7 +277,6 @@ $(document).ready(function () {
         $form.find('[required]').each(function () {
             const $field = $(this);
             const val = $field.val().trim();
-            const fieldName = $field.attr('name') || $field.attr('id') || 'field';
 
             if (!val) {
                 isValid = false;
@@ -315,7 +335,6 @@ $(document).ready(function () {
     // ============================================================
     // 8.  AJAX FORM SUBMISSION
     // ============================================================
-    // Enquiries form
     $('form[action*="enquiries"]').on('submit', function (e) {
         e.preventDefault();
         const $form = $(this);
@@ -361,7 +380,6 @@ $(document).ready(function () {
         });
     });
 
-    // Contact form – with clickable email link in the modal
     $('form[action*="contact"]').on('submit', function (e) {
         e.preventDefault();
         const $form = $(this);
@@ -395,9 +413,6 @@ $(document).ready(function () {
             },
             error: function () {
                 const name = $form.find('#name').val() || 'Customer';
-                const email = $form.find('#email').val() || '';
-
-                // --- UPDATED: clickable mailto link ---
                 showModal(
                     '📬 Message Ready',
                     `Thank you ${name}! Your message would be sent to <a href="mailto:lulu@cakeheaven.com" style="color: var(--brown-600); text-decoration: underline;">lulu@cakeheaven.com</a>. We'll be in touch soon!`,
@@ -445,26 +460,33 @@ $(document).ready(function () {
 
 
     // ============================================================
-    // 10. DYNAMIC CONTENT LOADING
+    // 10. LOAD MORE BUTTON (Index page)
     // ============================================================
     $('.load-more-btn').on('click', function () {
         const $btn = $(this);
-        const $container = $btn.closest('.dynamic-content').find('.product-grid, .catalogue-grid');
-        const originalText = $btn.text();
+        const $container = $btn.closest('.dynamic-content').find('.product-grid');
 
+        // Prevent multiple clicks
+        if ($btn.data('loaded')) return;
+        $btn.data('loaded', true);
+
+        const originalText = $btn.text();
         $btn.text('⏳ Loading...').prop('disabled', true);
 
         setTimeout(function () {
+            // Use images that exist in your folder
             const newProducts = [
-                { name: 'Lemon Drizzle', price: 'R450', desc: 'Zesty lemon cake with glaze.', img: '_images/lemon_cake.jpg' },
-                { name: 'Carrot Walnut', price: 'R520', desc: 'Spiced carrot cake with cream cheese.', img: '_images/carrot_cake.jpg' },
-                { name: 'Funfetti Party', price: 'R380', desc: 'Colourful sprinkles in every bite.', img: '_images/funfetti_cake.jpg' }
+                { name: 'Oreo Drip Cake', price: 'R680', desc: 'Cookies & cream with chocolate drip.', img: '_images/dripping_oreocake.jpg' },
+                { name: 'Red Velvet Rose', price: 'R590', desc: 'Cream cheese frosting and rose petals.', img: '_images/three_wedding_cakes.jpg' },
+                { name: 'Tiramisu Cake', price: 'R400', desc: 'Rich and creamy Italian classic.', img: '_images/tiramisu-cake.jpg' }
             ];
 
             newProducts.forEach(function (p) {
                 const card = `
                             <div class="cake-card">
-                                <img src="${p.img}" alt="${p.name}" onerror="this.src='_images/placeholder.jpg'">
+                                <a href="${p.img}" data-lightbox="gallery" data-title="${p.name}">
+                                    <img src="${p.img}" alt="${p.name}" onerror="this.src='_images/placeholder.jpg'">
+                                </a>
                                 <h3>${p.name}</h3>
                                 <p class="price">${p.price}</p>
                                 <p>${p.desc}</p>
@@ -474,31 +496,88 @@ $(document).ready(function () {
                 $container.append(card);
             });
 
-            $btn.text('✅ Loaded more!').prop('disabled', true);
-            setTimeout(() => {
-                $btn.text(originalText).prop('disabled', false);
-            }, 2000);
-
-            $container.find('.cake-card img').each(function () {
-                const $img = $(this);
-                if (!$img.closest('a[data-lightbox]').length) {
-                    const src = $img.attr('src');
-                    const alt = $img.attr('alt') || 'Cake Heaven image';
-                    const $link = $(`<a href="${src}" data-lightbox="gallery" data-title="${alt}"></a>`);
-                    $img.wrap($link);
-                }
-            });
+            $btn.text('✅ Loaded!').prop('disabled', true);
+            setTimeout(function () {
+                $btn.fadeOut(300);
+            }, 1500);
 
         }, 800);
     });
 
 
     // ============================================================
-    // 11. ANIMATIONS & TRANSITIONS (scroll reveal)
+    // 11. PRODUCT PAGE SLIDESHOW (separate from index)
+    // ============================================================
+    if ($('#product-slideshow').length) {
+        console.log('Product slideshow found.');
+        const productSlides = [
+            { src: '_images/swirl_choc_cake.jpg', alt: 'Chocolate Indulgence' },
+            { src: '_images/dripping_oreocake.jpg', alt: 'Oreo Drip Cake' },
+            { src: '_images/wedding_cake.jpg', alt: 'Wedding Elegance' },
+            { src: '_images/tiramisu-cake.jpg', alt: 'Tiramisu Cake' },
+            { src: '_images/barbie_cake.jpg', alt: 'Barbie Dream' }
+        ];
+
+        let current = 0;
+        const container = $('#product-slideshow');
+        const inner = $('<div class="slideshow-inner"></div>');
+        const indicators = $('<div class="slideshow-indicators"></div>');
+
+        productSlides.forEach((item, idx) => {
+            const slide = $(`
+                <div class="slideshow-slide" data-index="${idx}">
+                    <img src="${item.src}" alt="${item.alt}" loading="lazy">
+                </div>
+            `);
+            inner.append(slide);
+            indicators.append(`<span class="indicator-dot" data-index="${idx}"></span>`);
+        });
+
+        container.append(inner).append(indicators);
+
+        const prev = $('<button class="slideshow-btn prev-btn">❮</button>');
+        const next = $('<button class="slideshow-btn next-btn">❯</button>');
+        container.append(prev).append(next);
+
+        function goTo(idx) {
+            const total = productSlides.length;
+            current = (idx + total) % total;
+            inner.css('transform', `translateX(-${current * 100}%)`);
+            container.find('.indicator-dot').removeClass('active');
+            container.find(`.indicator-dot[data-index="${current}"]`).addClass('active');
+        }
+
+        let auto = setInterval(() => goTo(current + 1), 4000);
+
+        prev.on('click', function() {
+            clearInterval(auto);
+            goTo(current - 1);
+            auto = setInterval(() => goTo(current + 1), 4000);
+        });
+        next.on('click', function() {
+            clearInterval(auto);
+            goTo(current + 1);
+            auto = setInterval(() => goTo(current + 1), 4000);
+        });
+        indicators.on('click', '.indicator-dot', function() {
+            clearInterval(auto);
+            const idx = parseInt($(this).data('index'));
+            goTo(idx);
+            auto = setInterval(() => goTo(current + 1), 4000);
+        });
+
+        container.on('mouseenter', () => clearInterval(auto));
+        container.on('mouseleave', () => auto = setInterval(() => goTo(current + 1), 4000));
+
+        goTo(0);
+    }
+
+
+    // ============================================================
+    // 12. OTHER FEATURES (scroll reveal, smooth scroll, etc.)
     // ============================================================
     if ('IntersectionObserver' in window) {
         const revealElements = document.querySelectorAll('.cake-card, .team-member, .accordion-item, .tab-panel');
-
         const observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -513,10 +592,6 @@ $(document).ready(function () {
         });
     }
 
-
-    // ============================================================
-    // 12. SMOOTH SCROLL FOR ANCHOR LINKS
-    // ============================================================
     $('a[href^="#"]').on('click', function (e) {
         const target = $(this.getAttribute('href'));
         if (target.length) {
@@ -527,20 +602,12 @@ $(document).ready(function () {
         }
     });
 
-
-    // ============================================================
-    // 13. DYNAMIC DOM MANIPULATION — Add "New" badge
-    // ============================================================
     $('.cake-card:lt(2)').each(function () {
         if (!$(this).find('.badge-new').length) {
             $(this).prepend('<span class="badge-new">🔥 New</span>');
         }
     });
 
-
-    // ============================================================
-    // 14. MOBILE TOGGLE (Hamburger menu)
-    // ============================================================
     $('.mobile-toggle').on('click', function (e) {
         e.stopPropagation();
         $('.navbar ul').slideToggle(300);
@@ -558,10 +625,6 @@ $(document).ready(function () {
         }
     });
 
-
-    // ============================================================
-    // 15. BACK TO TOP BUTTON
-    // ============================================================
     if (!$('#back-to-top').length) {
         const $backBtn = $(`
                     <button id="back-to-top" title="Back to top" style="display:none;">
@@ -583,16 +646,8 @@ $(document).ready(function () {
         });
     }
 
-
-    // ============================================================
-    // 16. FOOTER YEAR AUTO-UPDATE
-    // ============================================================
     $('.footer-year').text(new Date().getFullYear());
 
-
-    // ============================================================
-    // 17. CONSOLE WELCOME
-    // ============================================================
     console.log('🍰 Welcome to Cake Heaven!');
     console.log('📧 For inquiries: lulu@cakeheaven.com');
 

@@ -1,16 +1,14 @@
-<!-- product.html (with catalogue grid and tabs) -->
+<!-- product.html – new image names, tabs working -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love." />
-    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday" />
-    <title>Cake Heaven |product</title>
+    <meta name="description" content="Browse our delicious range of custom cakes – chocolate, vanilla, wedding, and more. Order your dream cake today!">
+    <meta name="keywords" content="custom cakes, chocolate cake, vanilla cupcakes, wedding cakes, birthday cakes, Pretoria bakery">
+    <title>Cake Heaven | Product Menu</title>
     <link href="css_assets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
@@ -18,7 +16,7 @@
 </head>
 <body>
     <header>
-        <img src="_images/logo.png" alt="Cake Heaven">
+        <img src="_images/logo.png" alt="Cake Heaven Logo">
         <nav class="navbar">
             <ul>
                 <li><a href="index.html">home</a></li>
@@ -29,71 +27,124 @@
             </ul>
         </nav>
         <input type="text" class="search-input" placeholder="search...">
-        <button type="submit">search</button>
+        <button type="submit" class="search-btn">search</button>
     </header>
 
     <main>
         <h1>Our menu of happiness 🍰</h1>
 
-      
+        <h2>✨ Featured Cake Showcase</h2>
+        <div id="product-slideshow"></div>
 
-        <!-- Product Catalogue Grid (with data-category for tabs) -->
-        <div class="catalogue-grid" id="product-grid-main">
-            <div class="cake-card" data-category="chocolate">
-                <img src="_images/swirl_choc_cake.jpg" alt="Chocolate Indulgence">
-                <h3>Chocolate Indulgence</h3>
-                <p class="price">R600</p>
-                <p>Three layers of rich chocolate, silky buttercream, and chocolate shavings.</p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
+        <h2>📋 Browse by Category</h2>
+        <div class="tabs-container">
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="tab-all">All Cakes</button>
+                <button class="tab-btn" data-tab="tab-chocolate">Chocolate</button>
+                <button class="tab-btn" data-tab="tab-vanilla">Vanilla</button>
+                <button class="tab-btn" data-tab="tab-wedding">Wedding</button>
             </div>
-            <div class="cake-card" data-category="vanilla">
-                <img src="_images/vanilla_cupcake.jpg" alt="Vanilla Dream Cupcakes">
-                <h3>Vanilla Dream Cupcakes</h3>
-                <p class="price">R300 / 6 pcs</p>
-                <p>Fluffy vanilla bean frosting on light vanilla sponge.</p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
+
+            <div class="tab-panel active" id="tab-all">
+                <div class="catalogue-grid" id="product-grid-main">
+                    <!-- Chocolate -->
+                    <div class="cake-card" data-category="chocolate">
+                        <a href="_images/chocolate-indulgence.jpg" data-lightbox="product-gallery" data-title="Chocolate Indulgence">
+                            <img src="_images/chocolate-indulgence.jpg" alt="Chocolate Indulgence Cake">
+                        </a>
+                        <h3>Chocolate Indulgence</h3>
+                        <p class="price">R600</p>
+                        <p>Three layers of rich chocolate, silky buttercream, and chocolate shavings.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Vanilla -->
+                    <div class="cake-card" data-category="vanilla">
+                        <a href="_images/vanilla-cupcakes.jpg" data-lightbox="product-gallery" data-title="Vanilla Dream Cupcakes">
+                            <img src="_images/vanilla-cupcakes.jpg" alt="Vanilla Dream Cupcakes">
+                        </a>
+                        <h3>Vanilla Dream Cupcakes</h3>
+                        <p class="price">R300 / 6 pcs</p>
+                        <p>Fluffy vanilla bean frosting on light vanilla sponge.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Wedding -->
+                    <div class="cake-card" data-category="wedding">
+                        <a href="_images/wedding-elegance.jpg" data-lightbox="product-gallery" data-title="Wedding Elegance">
+                            <img src="_images/wedding-elegance.jpg" alt="Elegant Wedding Cake">
+                        </a>
+                        <h3>Wedding Elegance</h3>
+                        <p class="price">from R850</p>
+                        <p>Custom tiers, fresh flowers, and your choice of flavors.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Vanilla -->
+                    <div class="cake-card" data-category="vanilla">
+                        <a href="_images/barbie-dream-cake.jpg" data-lightbox="product-gallery" data-title="Barbie Dream Cake">
+                            <img src="_images/barbie-dream-cake.jpg" alt="Barbie Dream Cake">
+                        </a>
+                        <h3>Barbie Celebration</h3>
+                        <p class="price">R520</p>
+                        <p>Perfect for little princesses — pink ombre and edible glitter.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Chocolate -->
+                    <div class="cake-card" data-category="chocolate">
+                        <a href="_images/oreo-drip-cake.jpg" data-lightbox="product-gallery" data-title="Oreo Drip Cake">
+                            <img src="_images/oreo-drip-cake.jpg" alt="Oreo Drip Cake">
+                        </a>
+                        <h3>Oreo Drip Cake</h3>
+                        <p class="price">R680</p>
+                        <p>Cookies & cream cake with chocolate drip and whole Oreos.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Wedding -->
+                    <div class="cake-card" data-category="wedding">
+                        <a href="_images/wedding-cake-trio.jpg" data-lightbox="product-gallery" data-title="Red Velvet Rose Wedding Cake">
+                            <img src="_images/wedding-cake-trio.jpg" alt="Red Velvet Rose Wedding Cake">
+                        </a>
+                        <h3>Red Velvet Rose</h3>
+                        <p class="price">R590</p>
+                        <p>Cream cheese frosting, velvety crumb, and rose petals.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Chocolate -->
+                    <div class="cake-card" data-category="chocolate">
+                        <a href="_images/chocolate-drip-cake.jpg" data-lightbox="product-gallery" data-title="Chocolate Drip Cake">
+                            <img src="_images/chocolate-drip-cake.jpg" alt="Chocolate Drip Cake">
+                        </a>
+                        <h3>Chocolate Drip</h3>
+                        <p class="price">R600</p>
+                        <p>Cream cheese frosting, chocolate drip.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+
+                    <!-- Vanilla -->
+                    <div class="cake-card" data-category="vanilla">
+                        <a href="_images/tiramisu-cake.jpg" data-lightbox="product-gallery" data-title="Tiramisu Cake">
+                            <img src="_images/tiramisu-cake.jpg" alt="Tiramisu Cake">
+                        </a>
+                        <h3>Tiramisu Cake</h3>
+                        <p class="price">R400</p>
+                        <p>Rich and creamy Italian classic.</p>
+                        <button onclick="location.href='enquiries.html'">Order now</button>
+                    </div>
+                </div>
             </div>
-            <div class="cake-card" data-category="wedding">
-                <img src="_images/wedding_cake.jpg" alt="Elegant Wedding Cake">
-                <h3>Wedding Elegance</h3>
-                <p class="price">from R850</p>
-                <p>Custom tiers, fresh flowers, and your choice of flavors.</p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
+
+            <div class="tab-panel" id="tab-chocolate">
+                <div class="catalogue-grid"></div>
             </div>
-            <div class="cake-card" data-category="vanilla">
-                <img src="_images/barbie_cake.jpg" alt="Barbie Dream Cake">
-                <h3>Barbie Celebration</h3>
-                <p class="price">R520</p>
-                <p>Perfect for little princesses — pink ombre and edible glitter.</p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
+            <div class="tab-panel" id="tab-vanilla">
+                <div class="catalogue-grid"></div>
             </div>
-            <div class="cake-card" data-category="chocolate">
-                <img src="_images/dripping_oreocake.jpg" alt="Oreo Drip Cake">
-                <h3>Oreo Drip Cake</h3>
-                <p class="price">R680</p>
-                <p>Cookies & cream cake with chocolate drip and whole Oreos.</p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
-            </div>
-            <div class="cake-card" data-category="wedding">
-                <img src="_images/three_wedding_cakes.jpg" alt="three_wedding_cakes">
-                <h3>Red Velvet Rose</h3>
-                <p class="price">R590</p>
-                <p>Cream cheese frosting, velvety crumb, and rose petals.</p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
-            </div>
-            <div class="cake-card" data-category="chocolate">
-                <img src="_images/choc_dripping.jpg" alt="choc_dripping">
-                <h3>choc_dripping</h3>
-                <p class="price">R600</p>
-                <p>Cream cheese frosting, </p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
-            </div>
-            <div class="cake-card" data-category="vanilla">
-                <img src="_images/tiramisu.jpg" alt="tiramisu">
-                <h3>tiramisu cake </h3>
-                <p class="price">R400</p>
-                <p>rich and creamy  </p>
-                <button onclick="location.href='enquiries.html'">Order now</button>
+            <div class="tab-panel" id="tab-wedding">
+                <div class="catalogue-grid"></div>
             </div>
         </div>
 
@@ -109,7 +160,7 @@
     </main>
 
     <footer>
-    <div class="footer-extra">
+        <div class="footer-extra">
             <p>cake heaven &copy; <span class="footer-year">2026</span> — baked with love</p>
             <div class="social-links">
                 <a href="https://facebook.com/lulu@cakeheaven" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -120,5 +171,96 @@
             <p style="font-size: 0.7rem; color: var(--brown-600); background: none; padding: 0; border: none; box-shadow: none;">Follow us at lulu@cakeheaven</p>
         </div>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Populate category tabs
+            function populateCategoryPanels() {
+                $('#tab-chocolate .catalogue-grid').empty();
+                $('#tab-vanilla .catalogue-grid').empty();
+                $('#tab-wedding .catalogue-grid').empty();
+                var $allItems = $('#tab-all .cake-card');
+                $allItems.each(function() {
+                    var $card = $(this).clone();
+                    var category = $card.data('category');
+                    if (category === 'chocolate') $('#tab-chocolate .catalogue-grid').append($card);
+                    else if (category === 'vanilla') $('#tab-vanilla .catalogue-grid').append($card);
+                    else if (category === 'wedding') $('#tab-wedding .catalogue-grid').append($card);
+                });
+            }
+            populateCategoryPanels();
+
+            // Tab switching
+            $('.tab-btn').on('click', function() {
+                var targetId = $(this).data('tab');
+                $('.tab-btn').removeClass('active');
+                $(this).addClass('active');
+                $('.tab-panel').removeClass('active');
+                $('#' + targetId).addClass('active');
+                var query = $('.search-input').val().trim();
+                if (query !== '') performSearch();
+            });
+
+            // Search
+            if ($('#no-results-msg').length === 0) {
+                $('.tabs-container').after('<p id="no-results-msg" style="display:none; text-align:center; padding:2rem; color:var(--brown-600);">😕 No cakes match your search.</p>');
+            }
+            function performSearch() {
+                var query = $('.search-input').val().toLowerCase().trim();
+                var $activePanel = $('.tab-panel.active');
+                var $cards = $activePanel.find('.cake-card');
+                var $msg = $('#no-results-msg');
+                if (query === '') { $msg.hide(); $cards.show(); return; }
+                var visibleCount = 0;
+                $cards.each(function() {
+                    var match = $(this).text().toLowerCase().indexOf(query) > -1;
+                    $(this).toggle(match);
+                    if (match) visibleCount++;
+                });
+                if (visibleCount === 0) $msg.show(); else $msg.hide();
+            }
+            $('.search-input').on('keyup', performSearch);
+            $('.search-btn').on('click', function(e) { e.preventDefault(); performSearch(); });
+
+            // Product slideshow (fallback)
+            if ($('#product-slideshow').length && !$('#product-slideshow').hasClass('slideshow-initialized')) {
+                $('#product-slideshow').addClass('slideshow-initialized');
+                var productSlides = [
+                    { src: '_images/chocolate-indulgence.jpg', alt: 'Chocolate Indulgence' },
+                    { src: '_images/oreo-drip-cake.jpg', alt: 'Oreo Drip Cake' },
+                    { src: '_images/wedding-elegance.jpg', alt: 'Wedding Elegance' },
+                    { src: '_images/tiramisu-cake.jpg', alt: 'Tiramisu' },
+                    { src: '_images/barbie-dream-cake.jpg', alt: 'Barbie Dream' }
+                ];
+                var current = 0;
+                var container = $('#product-slideshow');
+                var inner = $('<div class="slideshow-inner"></div>');
+                var indicators = $('<div class="slideshow-indicators"></div>');
+                $.each(productSlides, function(idx, item) {
+                    var slide = $('<div class="slideshow-slide" data-index="' + idx + '"><img src="' + item.src + '" alt="' + item.alt + '" loading="lazy"></div>');
+                    inner.append(slide);
+                    indicators.append('<span class="indicator-dot" data-index="' + idx + '"></span>');
+                });
+                container.append(inner).append(indicators);
+                var prev = $('<button class="slideshow-btn prev-btn">❮</button>');
+                var next = $('<button class="slideshow-btn next-btn">❯</button>');
+                container.append(prev).append(next);
+                function goTo(idx) {
+                    var total = productSlides.length;
+                    current = (idx + total) % total;
+                    inner.css('transform', 'translateX(-' + (current * 100) + '%)');
+                    container.find('.indicator-dot').removeClass('active');
+                    container.find('.indicator-dot[data-index="' + current + '"]').addClass('active');
+                }
+                var auto = setInterval(function() { goTo(current + 1); }, 4000);
+                prev.on('click', function() { clearInterval(auto); goTo(current - 1); auto = setInterval(function() { goTo(current + 1); }, 4000); });
+                next.on('click', function() { clearInterval(auto); goTo(current + 1); auto = setInterval(function() { goTo(current + 1); }, 4000); });
+                indicators.on('click', '.indicator-dot', function() { clearInterval(auto); var idx = parseInt($(this).data('index')); goTo(idx); auto = setInterval(function() { goTo(current + 1); }, 4000); });
+                container.on('mouseenter', function() { clearInterval(auto); });
+                container.on('mouseleave', function() { auto = setInterval(function() { goTo(current + 1); }, 4000); });
+                goTo(0);
+            }
+        });
+    </script>
 </body>
 </html>

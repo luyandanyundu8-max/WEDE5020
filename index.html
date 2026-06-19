@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love." />
-    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday" />
-    <title>Cake Heaven |home_page</title>
-
+    <meta name="description" content="Cake Heaven - Artisanal custom cakes baked with love. Order your dream cake today!">
+    <meta name="keywords" content="bakery, cakes, muffins, wedding, birthday, Pretoria">
+    <title>Cake Heaven | Home</title>
     <link href="css_assets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- jQuery & Lightbox -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <!-- Main JavaScript -->
+    <!-- Your main JS – but we'll override the load more here -->
     <script src="js_assets/myjavascript.js" defer></script>
 </head>
-
 <body>
     <header>
-        <img src="_images/logo.png" alt="Cake Heaven">
+        <img src="_images/logo.png" alt="Cake Heaven Logo">
         <nav class="navbar">
             <ul>
                 <li><a href="index.html" class="active">home</a></li>
@@ -30,20 +27,18 @@
             </ul>
         </nav>
         <input type="text" class="search-input" placeholder="search...">
-        <button type="submit">search</button>
+        <button type="submit" class="search-btn">search</button>
     </header>
 
     <main>
-        <!-- ===== ORIGINAL HERO SHOT – RESTORED ===== -->
         <div class="hero-full">
             <h1 class="hero-title">Cake Heaven</h1>
             <div class="hero-image-full">
-                <img src="_images/swirl_choc_cake.jpg" alt="Signature layered cake" onerror="this.src='_images/placeholder.jpg'">
+                <img src="_images/chocolate-indulgence.jpg" alt="Signature layered cake" onerror="this.src='_images/placeholder.jpg'">
             </div>
             <a href="enquiries.html" class="btn-cta">🍰 Order Your Cake Now →</a>
         </div>
 
-        <!-- Featured Services (icon cards) -->
         <h2>✨ Our Sweet Services</h2>
         <div class="product-grid" style="margin-bottom: 2rem;">
             <div class="cake-card" style="padding: 1.5rem;">
@@ -63,25 +58,30 @@
             </div>
         </div>
 
-        <!-- Bestsellers Grid -->
         <h2>🍫 Bestsellers You'll Love</h2>
         <div class="product-grid">
             <div class="cake-card">
-                <img src="_images/cakes_on_shelf.jpg" alt="Chocolate Indulgence">
+                <a href="_images/chocolate-indulgence.jpg" data-lightbox="gallery" data-title="Chocolate Indulgence">
+                    <img src="_images/chocolate-indulgence.jpg" alt="Chocolate Indulgence Cake">
+                </a>
                 <h3>Chocolate Indulgence</h3>
                 <p class="price">R600</p>
                 <p>Rich three‑layer chocolate cake with silky buttercream.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
             <div class="cake-card">
-                <img src="_images/vanilla_cupcake.jpg" alt="vanilla">
+                <a href="_images/vanilla-cupcakes.jpg" data-lightbox="gallery" data-title="Vanilla Cupcakes">
+                    <img src="_images/vanilla-cupcakes.jpg" alt="Vanilla Dream Cupcakes">
+                </a>
                 <h3>Vanilla Cupcakes</h3>
                 <p class="price">R300 / 6pcs</p>
                 <p>Light vanilla bean frosting on fluffy sponge.</p>
                 <button onclick="location.href='enquiries.html'">Order now</button>
             </div>
             <div class="cake-card">
-                <img src="_images/wedding_cake.jpg" alt="wedding_cake">
+                <a href="_images/wedding-elegance.jpg" data-lightbox="gallery" data-title="Wedding Elegance">
+                    <img src="_images/wedding-elegance.jpg" alt="Elegant Wedding Cake">
+                </a>
                 <h3>Elegant Wedding</h3>
                 <p class="price">From R850</p>
                 <p>Custom tiers, fresh flowers, and your choice of fillings.</p>
@@ -96,38 +96,36 @@
             <li><strong>Baking Workshops</strong> – Weekend classes for beginners & intermediates.</li>
         </ol>
 
-        <!-- ===== NEW SLIDESHOW ADDED HERE (separate from hero) ===== -->
         <h2>🎞️ Featured Creations Slideshow</h2>
         <div id="hero-slideshow"></div>
 
-        <!-- Gallery images with Lightbox (manual data-lightbox) -->
         <h2>📸 Our Creations</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1rem 0;">
-            <a href="_images/dripping_oreocake.jpg" data-lightbox="gallery" data-title="Oreo Drip Cake">
-                <img src="_images/dripping_oreocake.jpg" alt="Dripping Oreo cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            <a href="_images/oreo-drip-cake.jpg" data-lightbox="gallery" data-title="Oreo Drip Cake">
+                <img src="_images/oreo-drip-cake.jpg" alt="Oreo Drip Cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
             </a>
-            <a href="_images/tiramisu.jpg" data-lightbox="gallery" data-title="Tiramisu Cake">
-                <img src="_images/tiramisu.jpg" alt="Tiramisu" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            <a href="_images/tiramisu-cake.jpg" data-lightbox="gallery" data-title="Tiramisu Cake">
+                <img src="_images/tiramisu-cake.jpg" alt="Tiramisu" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
             </a>
             <a href="_images/graduation_picture.jpg" data-lightbox="gallery" data-title="Graduation Cake">
                 <img src="_images/graduation_picture.jpg" alt="Graduation cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
             </a>
-            <a href="_images/barbie_cake.jpg" data-lightbox="gallery" data-title="Barbie Dream Cake">
-                <img src="_images/barbie_cake.jpg" alt="Barbie cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
+            <a href="_images/barbie-dream-cake.jpg" data-lightbox="gallery" data-title="Barbie Dream Cake">
+                <img src="_images/barbie-dream-cake.jpg" alt="Barbie cake" style="max-width: 180px; border-radius: 16px; height: 140px; object-fit: cover;">
             </a>
         </div>
 
         <h2>🎂 Ready to order?</h2>
-        <p>Call us or send a message — we’ll craft your dream cake within 48 hours.</p>
+        <p>Call us or send a message — we'll craft your dream cake within 48 hours.</p>
         <div style="text-align: center; margin: 1rem 0 2rem;">
             <a href="enquiries.html" class="btn-cta" style="background-color: #6b3e2c;">📞 +27 663-329-303</a>
             <a href="mailto:lulu@cakeheaven.com" class="btn-cta" style="background-color: #6b3e2c; margin-left: 1rem;">✉️ lulu@cakeheaven.com</a>
         </div>
 
-        <!-- Dynamic content: Load more -->
+        <!-- ===== LOAD MORE SECTION ===== -->
         <div class="dynamic-content">
-            <button class="load-more-btn">📦 Load More Cakes</button>
-            <div class="product-grid" style="margin-top: 1rem;"></div>
+            <button class="load-more-btn" id="load-more-btn">📦 Load More Cakes</button>
+            <div class="product-grid" id="load-more-container" style="margin-top: 1rem;"></div>
         </div>
     </main>
 
@@ -143,5 +141,98 @@
             <p style="font-size: 0.7rem; color: var(--brown-600); background: none; padding: 0; border: none; box-shadow: none;">Follow us at lulu@cakeheaven</p>
         </div>
     </footer>
+
+    <!-- ===== INLINE SCRIPT: Load More Button (guaranteed to work) ===== -->
+    <script>
+        $(document).ready(function() {
+            // Load More Button functionality
+            $('#load-more-btn').on('click', function() {
+                var $btn = $(this);
+                var $container = $('#load-more-container');
+
+                // Prevent multiple clicks
+                if ($btn.data('loaded')) return;
+                $btn.data('loaded', true);
+
+                var originalText = $btn.text();
+                $btn.text('⏳ Loading...').prop('disabled', true);
+
+                // Simulate loading delay
+                setTimeout(function() {
+                    // These images are confirmed to exist in your _images folder
+                    var newProducts = [
+                        { name: 'Oreo Drip Cake', price: 'R680', desc: 'Cookies & cream with chocolate drip.', img: '_images/oreo-drip-cake.jpg' },
+                        { name: 'Red Velvet Rose', price: 'R590', desc: 'Cream cheese frosting and rose petals.', img: '_images/wedding-cake-trio.jpg' },
+                        { name: 'Tiramisu Cake', price: 'R400', desc: 'Rich and creamy Italian classic.', img: '_images/tiramisu-cake.jpg' }
+                    ];
+
+                    // Append each new cake card
+                    $.each(newProducts, function(i, p) {
+                        var card = `
+                            <div class="cake-card">
+                                <a href="${p.img}" data-lightbox="gallery" data-title="${p.name}">
+                                    <img src="${p.img}" alt="${p.name}" onerror="this.src='_images/placeholder.jpg'">
+                                </a>
+                                <h3>${p.name}</h3>
+                                <p class="price">${p.price}</p>
+                                <p>${p.desc}</p>
+                                <button onclick="location.href='enquiries.html'">Order now</button>
+                            </div>
+                        `;
+                        $container.append(card);
+                    });
+
+                    // Refresh Lightbox for new images
+                    if (typeof lightbox !== 'undefined') {
+                        lightbox.init();
+                    }
+
+                    $btn.text('✅ Loaded!').prop('disabled', true);
+                    setTimeout(function() {
+                        $btn.fadeOut(300);
+                    }, 1500);
+
+                }, 800);
+            });
+
+            // ----- Search functionality (typing + button click) -----
+            function performSearch() {
+                var query = $('.search-input').val().toLowerCase().trim();
+                var $cards = $('.cake-card');
+                var $msg = $('#no-results-msg');
+
+                // Add "no results" message if it doesn't exist
+                if ($('#no-results-msg').length === 0) {
+                    $('.product-grid').first().after('<p id="no-results-msg" style="display:none; text-align:center; padding:2rem; color:var(--brown-600);">😕 No cakes match your search.</p>');
+                }
+
+                if (query === '') {
+                    $('#no-results-msg').hide();
+                    $cards.show();
+                    return;
+                }
+
+                var visibleCount = 0;
+                $cards.each(function() {
+                    var match = $(this).text().toLowerCase().indexOf(query) > -1;
+                    $(this).toggle(match);
+                    if (match) visibleCount++;
+                });
+
+                if (visibleCount === 0) {
+                    $('#no-results-msg').show();
+                } else {
+                    $('#no-results-msg').hide();
+                }
+            }
+
+            $('.search-input').on('keyup', performSearch);
+            $('.search-btn').on('click', function(e) {
+                e.preventDefault();
+                performSearch();
+            });
+
+        });
+    </script>
 </body>
 </html>
